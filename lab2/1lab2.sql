@@ -11,10 +11,10 @@ create table countries(
 );
 
 /*task3*/
-insert into countries(country_name, region_id, population) values('Switzerland',2, 8962300);
+insert into countries(country_name, region_id, population) values('Switzerland',5, 8962300);
 
 /*task4*/
-insert into countries(country_id,country_name) values(3,'Mexico');
+insert into countries(country_id,country_name) values(10,'Mexico');
 
 /*task5*/
 insert into countries(country_name,region_id,population) values('vatican',NULL,764);
