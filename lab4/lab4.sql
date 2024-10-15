@@ -38,7 +38,7 @@ select * from Warehouses;
 select * from Boxes where value>150;
 
 --6
-select * from Boxes where contests in (select distinct contests from Boxes);
+select distinct Boxes.contests from Boxes;
 
 --7
 select warehouse,count(*) as box_count from Boxes group by warehouse;

@@ -85,7 +85,7 @@ select employees.department, count(*) from employees group by department having 
 
 --task12
 
-select distinct budget from departments order by budget desc offset 1 limit 1;
+select distinct budget from departments order by budget desc offset 0 limit 1;
 
 --task13
 select employees.name,employees.lastname from employees join departments d on employees.department = d.code where d.budget = (select min(budget) from departments);
