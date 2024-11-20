@@ -17,10 +17,11 @@ create table employees(
     department_id int references department
 );
 
-insert into countries(id,name) values(1,'USA'),
-                                     (2,'Russia'),
-                                     (3,'Kazakhstan'),
-                                     (4,'Japan');
+insert into countries(id,name)
+values(1,'USA'),
+      (2,'Russia'),
+      (3,'Kazakhstan'),
+      (4,'Japan');
 
 
 insert into department(department_id,budget)
@@ -42,10 +43,11 @@ create index countries_name_index on countries(name);
 create index idx_employees_name_surname on employees(name,surname);
 
 --task3
-create index idx_employees_salary on employees((salary<value1),(salary>value2));
+create unique index idx_employees_salary on employees((salary<value1),(salary>value2));
 
 --task4
-CREATE INDEX idx_employees_name_substring ON employees (substring(name FROM 1 FOR 4));
+create index idx_employees_name_substring on employees (substring(name from 1 for 4));
 
 --task5
-create index idx_department_department_salary
+create index idx_department_department_id on department(budget);
+create index idx_employees_department_id on employees(salary);
