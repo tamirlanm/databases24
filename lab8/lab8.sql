@@ -25,6 +25,7 @@ create table orders(
     salesman_id serial references salesman
 );
 
+--inserting values into tables salesman,customers, orders--
 insert into salesman(salesman_id,name,city,commision)
 values (5001,'James Hoog', 'New York',0.15),
        (5002,'Nail Knite', 'Paris', 0.13),
@@ -68,14 +69,14 @@ from orders o
 join salesman s on o.salesman_id = s.salesman_id
 join customers c on c.customer_id = o.customer_id;
 
---GRANT ALL PRIVILEGES ON VIEW order_details TO junior_dev;
+grant order_details to junior_dev;
 
 --task6
 create view top_customers as
 select * from customers
 where grade = (select max(grade) from customers);
 
---grant select on view top_customers to junior_dev;
+grant top_customers to junior_dev;
 
 --task7
 create view salesmen_count_by_city as
@@ -93,5 +94,4 @@ having count(customer_id) > 1;
 
 --task9
 create role intern with login;
-
-grant junior_dev to intern;
+grant  junior_dev to intern;
