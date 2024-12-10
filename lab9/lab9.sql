@@ -5,6 +5,7 @@ begin
     return input_value + 10;
 end;
 $$ language plpgsql;
+select increase_value(10);
 
 --task2
 create or replace procedure compare_numbers(
@@ -23,7 +24,8 @@ begin
     end if;
     return result;
 end;
-$$ language plpgsql;
+$$;
+
 
 --task3
 create or replace procedure number_series(
@@ -49,6 +51,7 @@ begin
 end;
 $$;
 
+
 --task4
 create or replace procedure find_employee(
     emp_name text,
@@ -69,6 +72,7 @@ begin
 end;
 $$;
 
+
 --task5
 create or replace procedure list_products(
     category_name text
@@ -81,7 +85,8 @@ begin
     from products
     where category = category_name;
 end;
-$$
+$$;
+
 
 --task6
 create or replace procedure calculate_bonus(
@@ -141,7 +146,7 @@ begin
         -- First subblock: perform a numeric computation
         <<numeric_block>>
         begin
-            numeric_result := input_num *2;
+            numeric_res := input_num *2;
             raise notice 'Numeric result: %', numeric_res;
         end numeric_block;
 
@@ -149,7 +154,7 @@ begin
         <<string_block>>
         begin
             text_res := concat ('Hello, ', input_text);
-            raise_notice 'Text result: %', text_res;
+            raise notice 'Text result: %', text_res;
         end string_block;
 
         --Combine results
